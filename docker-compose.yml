@@ -11,7 +11,7 @@ services:
           - comment_db
   ui:
     # build: ./ui
-    image: ${USERNAME}/ui:${UI_VER}
+    image: ${USER_NAME}/ui:${UI_VER}
     ports:
       - ${UI_PORT}:9292/tcp
     networks:
@@ -19,12 +19,12 @@ services:
       - back_net
   post:
     # build: ./post-py
-    image: ${USERNAME}/post:${POST_VER}
+    image: ${USER_NAME}/post:${POST_VER}
     networks:
       - back_net
   comment:
     # build: ./comment
-    image: ${USERNAME}/comment:${COMMENT_VER}
+    image: ${USER_NAME}/comment:${COMMENT_VER}
     networks:
       - back_net
   prometheus:
