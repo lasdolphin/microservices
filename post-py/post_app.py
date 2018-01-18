@@ -79,6 +79,8 @@ def find_posts():
 
 @app.route("/posts")
 def posts():
+    log.error('test', service='posts', request_id='null',
+                  message='{0} ---- {1}'.format(request.headers, ZIPKIN_URL))
     with zipkin_span(
         service_name='post',
         zipkin_attrs=ZipkinAttrs(

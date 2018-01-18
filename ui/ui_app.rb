@@ -88,9 +88,6 @@ get '/' do
   begin
     @posts = http_request('get', "#{POST_URL}/posts")
   rescue StandardError => e
-    flash_danger(POST_URL)
-    flash_danger(COMMENT_URL)
-
     flash_danger('Can\'t show blog posts, some problems with the post ' \
                  'service. <a href="." class="alert-link">Refresh?</a>')
     log_event('error', 'show_all_posts',
